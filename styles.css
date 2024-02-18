@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=Crete+Round:ital@0;1&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Quando se utiliza mesmos elementos na composição 
+   de uma página, que pode ser cores ou fontes, costuma-se
+   criar variáveis, tendo em vista que se constitui de uma
+   boa prática, além de tornar o código mais "fácil" de 
+   se alterar 
+   
+   Para criar as variáveis estéticas, basta seguir
+   o código a seguir: */
+
+:root {
+   --cor-primaria: black; 
+   --cor-secundaria: #f6f6f6;
+   --cor-terciaria: #22D4FD;
+
+   --fonte-montserrat: font-family: "Montserrat", serif;
+   --fonte-chivo: font-family: "Chivo", serif;
+
+}
+
+.crete-round-regular {
+   font-family: "Crete Round", serif;
+   font-weight: 400;
+   font-style: normal;
+}
+
+/* Normalmente, quando se "upa" um arquivo
+   HTML para uma página web que tem como função
+   o ler, o navegador por padrão submete alguns
+   estilos ao conteúdo passado. 
+   
+   Desse modo, uma das formas que se pode 
+   "resetar" de forma a impedir que o navegador
+   estilize a página aquém de nosso desejo se dá
+   por no CSS selecionar todos os elementos, sendo
+   feito isso por meio do uso do "*". No caso, estou
+   apenas resetando a margem (margin) e o espaçamento
+   (padding) dos conteúdos presentes no HTML. */
+
+* {
+   margin: 0;
+   padding: 0;
+}
+
+/* Dentro do body, estou passando como parâmetros
+   tanto o background da página quanto a cor de fundo 
+   e das fontes dos textos, além da altura máxima 
+   que a minha aplicação estará aproveitando, 
+   sendo de 100% da visualização, bem como estou 
+   definindo, por meio do box-sizing, que o conteúdo
+   circunscrito a ele jamais o sobreponha, fuja
+   de suas fronteiras*/
+
+body {
+
+   /* Perceba que aqui eu havia utilizado o 
+      height: 100vh; desse modo, porém não 
+      mais o utilizo, tendo em vista que estou 
+      o comentando, mas por quê? Bom, comumente 
+      utiliza-se o height dessa forma para cenários
+      em que o conteúdo que forma o body da main 
+      é "pequeno", de tal modo que assim ele consiga
+      preencher toda a tela e ter uma disposição 
+      visual melhor. 
+      
+      À medida que o body aumenta de tamanho, tornando-se
+      maior, o uso do height perde o sentido, podendo ser
+      eclipsado. */
+
+
+   box-sizing: border-box;
+   background-color: var(--cor-primaria);
+   color: var(--cor-secundaria);
+}
+
+/* Estilização que interfere na disposição  
+   dos elementos do cabeçalho da página. */
+
+.cabecalho {
+   padding-top: 5%;
+   padding-left: 15%;
+}
+
+/* Estilização que interfere nos itens 
+   dentro do cabeçalho, o seu agrupamento 
+   e a distância entre si. */
+
+.cabecalho__menu {
+   display: flex;
+   gap: 80px;
+}
+
+/* Estilização que interfere nos itens do 
+   cabeçalho em si, de modo que se edita
+   a fonte, seu tamanho, peso e cor. */
+
+.cabecalho__menu__link {
+   font-family: "Montserrat", serif;
+   font-size: 1.5rem;
+   font-weight: 600;
+   color: var(--cor-terciaria);
+   text-decoration: none;
+}
+
+
+/* Cor do texto em destaque na apresentação. */
+
+.texto_destaque {
+   color: var(--cor-terciaria);
+}
+
+.apresentacao {
+
+   padding: 10% 15%;
+
+   display: flex;
+
+   /* O parâmetro a seguir permite que os itens do conteúdo
+       se alinhem em relação a eles próprios, de modo que o 
+       elemento que apresentar a maior altura será usado como 
+       referência ao alinhamento. */
+
+   align-items: center;
+
+   /* Justificando o conteúdo, de modo que eles fiquem 
+       numa posição justificada, isto é, segmentada, garantindo
+       que estejam separados em torno de si. */
+
+   justify-content: space-between;
+
+   /* Distancia entre o texto e a imagem. */
+   gap: 82px;
+}
+
+.apresentacao__conteudo {
+
+   width: 50%;
+   height: 482px;
+
+   /* Definindo uma disposição dos elementos
+       de modo que eles fiquem "bem acomodados" 
+       e sem que ultrapassem ao "container no 
+       qual estão submetidos, bem como estou 
+       passando a direção que desejo que fiquem 
+       agrupados, uma vez que, por padrão, quando
+       passamos o display:flex os elementos 
+       ficam todos numa linha. */
+
+   display: flex;
+   flex-direction: column;
+
+   /* O gap utilizado é um recurso do CSS, 
+       que me auxilia a pôr um espaçamento 
+       dos itens, que no caso é de 40px. */
+   gap: 40px;
+
+   padding-bottom: 15%;
+}
+
+.apresentacao__conteudo__titulo {
+
+   /* Alterei o tamanho de pixels para rem, pois
+      desejei alterar de um tamanho fixo, para relativo. 
+      Dentre as unidades relativas, há outras além do rem,
+      como a porcentagem, porém a vantagem do rem é
+      que ele se relaciona com a raiz do navegador, 
+      adequando-se coforme a ele. */
+
+   font-size: 2.25rem;
+   font-weight: 400;
+   font-family: "Chivo", serif;
+}
+
+.apresentacao__conteudo__texto {
+   font-size: 1.5625rem;
+   font-family: "Montserrat", serif;
+}
+
+.apresentacao__botoes {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 32px;
+   justify-content: space-between;
+}
+
+.apresentacao__subtitulo__botoes {
+   font-family: "Chivo", serif;
+   font-weight: 400;
+   font-size: 1.5rem;
+}
+
+.apresentacao__botoes__links {
+
+   /* Agrupando os itens dentro dos botões, 
+      bem como justificando-os e os separando
+      para que fique com uma boa visualização. */
+
+   display: flex;
+   justify-content: center;
+   gap: 16px;
+
+   /* Definindo a largura do botão.*/
+
+   width: 50%;
+
+   /* Definindo o espaçamento 
+       vertical do botão, bem 
+       como o arredondamento de
+       suas extremidas e o tipo de 
+       de borda, que serve de base
+       à construção do contorno dos
+       botões, assim como o seu 
+       tamanho e cor. */
+
+   padding-top: 21.5px;
+   padding-bottom: 21.5px;
+   border-radius: 8px;
+   border: 2px solid var(--cor-terciaria);
+
+   /* Definindo o tamanho da fonte
+       do texto dobotão, seu peso, 
+       a família a qual pertence
+       e a sua respectiva cor.  */
+
+   font-size: 1.5rem;
+   font-weight: 600;
+   font-family: "Montserrat", serif;
+   color: var(--cor-secundaria);
+
+   /* Centralizando o texto no botão, 
+       assim como removendo toda decoração
+       padrão a ele, de modo que fique 
+       como "nós" desejamos. */
+
+   text-align: center;
+   text-decoration: none;
+}
+
+/* Uma das formas de deixar a página mais viva, 
+   por assim dizer, é adicionar estilos quando 
+   o mouse passa em cima de algum item. Nesse
+   caso, estou adicionando um hover, que traduzindo
+   seria um pairador, o qual, assim que "percebe"
+   o mouse em cima do item de referência, executa
+   a sua função, que no caso é alterar a cor 
+   de fundo do botão, para um preto menos escuro. */
+
+.apresentacao__botoes__links:hover {
+   background-color: #272727;
+}
+
+/* Defini uma class para a imagem de modo  
+   que me permitisse alterar aqui no CSS 
+   a imagem relativa da imagem, de modo 
+   que ela se adequasse à página. */
+.apresentacao__imagem {
+   width: 50%;
+}
+
+.rodape {
+   color: var(--cor-primaria);
+   background-color: var(--cor-terciaria);
+   padding: 24px;
+   text-align: center;
+   font-family: "Montserrat", serif;
+   font-size: 1.5rem;
+   font-weight: 600;
+}
+
+/* A disposição dos elementos presentes na página
+   altera conforme ao tamanho da página na qual se
+   circunscrevem, podendo ficar muito espçados ou 
+   aglutinados entorno de si. Dessa forma, uma forma
+   de melhorar a responsividade da página de modo que
+   o tamanho das telas não interfere negativamente na
+   experiência do usuário, há o recurso da media querie, 
+   que permite alterar o layout da página mediante ao
+   seu tamanho.  */
+
+   @media (max-width: 1200px) {
+      
+      .cabecalho {
+         padding-top: 10%;
+      }
+
+      .cabecalho__menu {
+
+         justify-content: center;
+
+      }
+
+      /* Aqui estou alterando o layout do conteúdo 
+         circunscrito à classe apresentacao do html, 
+         de modo que se adeque melhor num tamanho de
+         tela menor. 
+         
+         Para se assemelhar ao o que fora passado via
+         Figma, no sentido de que a imagem fica na posição
+         superior aos textos, inverti a ordem da coluna, 
+         tendo em vista que, a partir do HTML, essa iniciava
+         antes daqueles. 
+         
+         Além disso, para ter um espaçamento melhor à vista
+         do usuário, defini um espaçamento, padding, de 8%.*/
+
+      .apresentacao {
+         flex-direction: column-reverse;
+         padding: 8%;
+      }
+
+      /* Aqui estou definindo um novo tamanho à largura do item
+         que está envolto à classe referida, a qual se relaciona
+         com o conteúdo própriamente dito da apresentação, que são
+         os textos. Não se pode zerar o tamanho do conteúdo, pensando
+         que, assim, ele irá preencher todo o espaço de seu invólucro, 
+         mas deve-se definir seu tamano quer seja de forma automática, 
+         como pode observar abaixo, ou definir 100%. */
+
+      .apresentacao__conteudo {
+         width: auto;
+      }
+      
+   }
